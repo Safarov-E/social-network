@@ -38,6 +38,11 @@ export default new VueRouter({
             ]
         },
         {
+            path: ':id/edit',
+            name: 'stories.edit',
+            component: StoriesEdit
+        },
+        {
             path: '*',
             redirect: '/'
         }

@@ -2,8 +2,9 @@
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
     <h1>Добро пожаловать в динамические компоненты!</h1>
-    <router-link :to="{name: 'home'}">Главная</router-link>
+    <router-link :to="{name: 'home'}" exact>Главная</router-link>
     <router-link :to="{name: 'login'}">Логин</router-link>
+    <router-link :to="{name: 'stories.all'}">Истории</router-link>
     <router-view></router-view>
   </div>
 </template>
@@ -46,5 +47,7 @@ export default {
 </script>
 
 <style>
-
+  .router-link-active {
+    color: green;
+  }
 </style>
