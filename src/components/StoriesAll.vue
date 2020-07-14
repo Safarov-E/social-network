@@ -8,8 +8,10 @@
                         <span class="badge">{{story.upvotes}}</span>
                     </h4>
                     <router-link
-                        :to="{name: 'stories.edit'}" tag="button"
-                        class="btn btn-default" exact
+                        :to="{name: 'stories.edit', params: {id: stories.id}}" 
+                        tag="button"
+                        class="btn btn-default"
+                        exact
                     >
                         Редактировать
                     </router-link>
