@@ -12,14 +12,6 @@
 </template>
 
 <script>
-// import Vue from 'vue'
-// import Login from './components/Login'
-// import Register from './components/Register'
-// import Stories from './components/Stories'
-
-// Vue.filter('capitalize', function(value) {
-//   return value.charAt(0).toUpperCase() + value.substr(1)
-// })
 export default {
   name: 'App'
 }
