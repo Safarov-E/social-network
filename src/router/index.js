@@ -5,6 +5,7 @@ import Login from '../components/Login'
 import StoriesPage from '../components/StoriesPage'
 import StoriesAll from '../components/StoriesAll'
 import StoriesFamous from '../components/StoriesFamous'
+import StoriesEdit from '../components/StoriesEdit'
 
 Vue.use(VueRouter)
 
@@ -33,12 +34,14 @@ export default new VueRouter({
                 {
                     path: 'famous',
                     name: 'stories.famous',
+                    alias: '/famous',
                     component: StoriesFamous
                 }
             ]
         },
         {
             path: ':id/edit',
+            props: (route) => ({ id: Number(route.params.id) }),
             name: 'stories.edit',
             component: StoriesEdit
         },

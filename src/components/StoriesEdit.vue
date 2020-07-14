@@ -9,6 +9,9 @@
                 <button type="button" @click="saveChanges(story)" class="btn btn-success">
                     Сохранить изменения
                 </button>
+                <button type="button" @click="goBack" class="btn btn-primary">
+                    Вернуться назад
+                </button>
             </div>
         </form>
     </div>
@@ -26,11 +29,15 @@
                 return story.id === this.id
             },
             saveChanges(story) {
-
+                console.log(story)
+                this.$router.push('/stories')
+            },
+            goBack() {
+                this.$router.back()
             }
         },
         mounted() {
-            this.story = story.stories.find(this.isTheOne)
+            this.story = store.stories.find(this.isTheOne)
         }
     }
 </script>
