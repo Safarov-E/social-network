@@ -5,7 +5,9 @@
     <router-link :to="{name: 'home'}" exact>Главная</router-link>
     <router-link :to="{name: 'login'}">Логин</router-link>
     <router-link :to="{name: 'stories.all'}">Истории</router-link>
-    <router-view></router-view>
+    <transition name="fade">
+      <router-view></router-view>
+    </transition>
   </div>
 </template>
 
@@ -19,35 +21,21 @@
 //   return value.charAt(0).toUpperCase() + value.substr(1)
 // })
 export default {
-  name: 'App',
-  components: {
-    // Login,
-    // Register,
-    // Stories
-  },
-  data() {
-    // return {
-    //   pages: [
-    //     'stories',
-    //     'register',
-    //     'login'
-    //   ],
-    //   activePage: 'stories'
-    // }
-  },
-  // methods: {
-  //   setPage(newPage) {
-  //     this.activePage = newPage
-  //   },
-  //   isActivePage(page) {
-  //     return this.activePage === page
-  //   }
-  // }
+  name: 'App'
 }
 </script>
 
 <style>
   .router-link-active {
     color: green;
+  }
+  .fade-enter{
+    opacity: 0
+  }
+  .fade-enter-active {
+    transition: opacity 1s
+  }
+  .fade-enter-to {
+    opacity: 0.8
   }
 </style>
