@@ -7,12 +7,13 @@
         <input type="text" placeholder="Пароль" class="form-control">
         <input type="text" placeholder="Подтверждение пароля" class="form-control">
         <button type="submit" class="btn">Зарегистрироваться</button>
-        <famous></famous>
+        <famous :stories="stories"></famous>
     </div>
 </template>
 <script>
     import Famous from './Famous';
     export default {
+        props: ['stories'],
         components: {
             Famous
         },
