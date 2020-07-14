@@ -10,8 +10,13 @@
     </div>
 </template>
 <script>
+import {store} from '../store.js'
 export default {
-    props: ['stories'],
+    data() {
+        return {
+            stories: store.stories
+        }
+    },
     computed: {
         famous() {
             return this.stories.filter((item) => {
