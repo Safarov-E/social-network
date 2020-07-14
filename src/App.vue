@@ -1,55 +1,51 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <!-- <hello></hello>
-    <login></login> -->
-    <register :stories="stories"></register>
-    <!-- <stories :stories="stories"></stories> -->
+    <h1>Добро пожаловать в динамические компоненты!</h1>
+    <ul class="nav nav-tabs">
+      <li v-for="(page, index) in pages"
+        :key="index"
+        :class="isActivePage(page) ? 'active' : ''"
+      >
+        <a @click="setPage(page)">{{page | capitalize}}</a>
+      </li>
+    </ul>
+    <component :is="activePage"></component>
   </div>
 </template>
 
 <script>
-// import Login from './components/Login.vue'
-// import Hello from './components/Hello.vue'
+import Vue from 'vue'
+import Login from './components/Login'
 import Register from './components/Register'
-// import Stories from './components/Stories'
+import Stories from './components/Stories'
 
+Vue.filter('capitalize', function(value) {
+  return value.charAt(0).toUpperCase() + value.substr(1)
+})
 export default {
   name: 'App',
   components: {
-    // Hello,
-    // Login,
-    // Stories
+    Login,
     Register,
+    Stories
   },
-  data(){
+  data() {
     return {
-      stories: [
-        {
-          plot: 'Моя лошадь потрясающая.',
-          writer: 'Мистер Уибл',
-          upvotes: 28,
-          voted: false
-        },
-        {
-          plot: 'Нарвалы изобрели шашлык.',
-          writer: 'Мистер Уибл',
-          upvotes: 8,
-          voted: false
-        },
-        {
-          plot: 'Тёмная сторона Силы сильнее',
-          writer: 'Дарт Вейдер',
-          upvotes: 52,
-          voted: false
-        },
-        {
-          plot: 'Просто так в Мордор не попадёшь',
-          writer: 'Боромир',
-          upvotes: 74,
-          voted: false
-        }
-      ]
+      pages: [
+        'stories',
+        'register',
+        'login'
+      ],
+      activePage: 'stories'
+    }
+  },
+  methods: {
+    setPage(newPage) {
+      this.activePage = newPage
+    },
+    isActivePage(page) {
+      return this.activePage === page
     }
   }
 }
