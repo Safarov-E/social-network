@@ -2,15 +2,9 @@
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
     <h1>Добро пожаловать в динамические компоненты!</h1>
-    <ul class="nav nav-tabs">
-      <li v-for="(page, index) in pages"
-        :key="index"
-        :class="isActivePage(page) ? 'active' : ''"
-      >
-        <a @click="setPage(page)">{{page | capitalize}}</a>
-      </li>
-    </ul>
-    <component :is="activePage"></component>
+    <router-link to="/">Главная</router-link>
+    <router-link to="/login">Логин</router-link>
+    <router-view></router-view>
   </div>
 </template>
 
